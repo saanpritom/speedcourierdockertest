@@ -1,0 +1,28 @@
+version: "1"
+services:
+  db:
+    image: mysql
+    container_name: speedcourier-mysql-db
+    command: --default-authentication-plugin=mysql_native_password
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: superacces123
+      MYSQL_DATABASE: speedcourier
+      MYSQL_USER: mysqluser
+      MYSQL_PASSWORD: superacces123
+    ports:
+        - 3306:3306
+    volumes:
+      - ./dump.sql:/docker-entrypoint-initdb.d/speedcourier.sql      
+  web:
+    image: saanpritom/speedcourier
+    command: python manage.py runserver
+    depends_on:
+      - speedcourier-mysql-db
+    ports:
+      - 8000:8000
+    volumes:
+      - ./speedcourier-app:/home/ubuntu/speedcourier
+volumes:
+    speedcourierdata:
+      driver: local

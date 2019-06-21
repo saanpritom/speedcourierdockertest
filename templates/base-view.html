@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html>
+<head>
+        <title>Speed Line Express Ltd.</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="{% static 'assets/img/logo/logo.ico' %}" rel="shortcut icon" type="image/x-icon" />
+
+        <!-- Bootstrap Css -->
+        <link rel="stylesheet" type="text/css" href="{% static 'assets/plugins/bootstrap-3.3.6/css/bootstrap.min.css' %}">
+        <!-- Bootstrap Select Css -->
+        <link rel="stylesheet" type="text/css" href="{% static 'assets/plugins/bootstrap-select-1.10.0/dist/css/bootstrap-select.min.css' %}">
+        <!-- Fonts Css -->
+        <link rel="stylesheet" type="text/css" href="{% static 'assets/plugins/font-awesome-4.6.1/css/font-awesome.min.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'assets/plugins/font-elegant/elegant.css' %}">
+        <!-- OwlCarousel2 Slider Css -->
+        <link rel="stylesheet" type="text/css" href="{% static 'assets/plugins/owl.carousel.2/assets/owl.carousel.css' %}">
+
+
+        <!-- Animate Css -->
+        <link rel="stylesheet" type="text/css" href="{% static 'assets/css/animate.css' %}">
+
+        <!-- Main Css -->
+        <link rel="stylesheet" type="text/css" href="{% static 'assets/css/theme.css' %}">
+
+        <!--[if lt IE 9]>
+        <script src="assets/plugins/iesupport/html5shiv.js"></script>
+        <script src="assets/plugins/iesupport/respond.js"></script>
+        <![endif]-->
+    </head>
+    <body id="home">
+
+
+
+        <!-- Main Wrapper -->
+        <main class="wrapper">
+
+            <!-- Header -->
+            <header class="header-main">
+
+                <!-- Header Topbar -->
+                <div class="top-bar font2-title1 white-clr">
+                    <div class="theme-container container">
+                        <div class="row">
+                            <div class="col-md-6 col-sm-5">
+                                <p class="contact-num">  <i class="fa fa-phone"></i> Call us now: <span class="theme-clr"> +8801717462857 </span> </p>
+                            </div>
+                        </div>
+                    </div>
+                    <a data-toggle="modal" href="{% url 'admin:index' %}" class="sign-in fs-12 theme-clr-bg"> sign in </a>
+                </div>
+                <!-- /.Header Topbar -->
+
+                <!-- Header Logo & Navigation -->
+                <nav class="menu-bar font2-title1">
+                    <div class="theme-container container">
+                        <div class="row">
+                            <div class="col-md-2 col-sm-2">
+                                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-controls="navbar">
+                                    <span class="sr-only">Toggle navigation</span>
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                </button>
+                                <a class="navbar-logo" href="{% url 'home-page' %}"> <img src="{% static 'assets/img/logo/logo.png' %}" alt="logo" /> </a>
+                            </div>
+                            <div class="col-md-10 col-sm-10 fs-12">
+                                <div id="navbar" class="collapse navbar-collapse no-pad">
+                                    <ul class="navbar-nav theme-menu">
+                                      {% url 'home-page' as url_check %}
+                                      <li {% if request.path == url_check %} class="active"{% endif %}><a href="{% url 'home-page' %}">Home </a></li>
+                                      {% url 'about-page' as url_check %}
+                                    	<li {% if request.path == url_check %} class="active"{% endif %}> <a href="{% url 'about-page' %}">about</a> </li>
+                                      {% url 'tracking-page' as url_check %}
+                                    	<li {% if request.path == url_check %} class="active"{% endif %}><a href="{% url 'tracking-page' %}"> tracking </a> </li>
+                                      {% url 'contact-page' as url_check %}
+                                    	<li {% if request.path == url_check %} class="active"{% endif %} style="padding-top: 5px;"><a href="{% url 'contact-page' %}"> contact </a> </li>
+                                      {% url 'client-page' as url_check %}
+                                    	<li {% if request.path == url_check %} class="active"{% endif %} style="padding-top: 5px;"><a href="{% url 'client-page' %}"> clients </a> </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </nav>
+                <!-- /.Header Logo & Navigation -->
+
+            </header>
+            <!-- /.Header -->
+
+            <!-- Content Wrapper -->
+            {% block body_block %}
+
+            {% endblock %}
+            <!-- /.Content Wrapper -->
+
+            <!-- Footer -->
+            <footer>
+                <div class="footer-bottom">
+                    <div class="theme-container container">
+                        <div class="row">
+                            <div class="col-md-6 col-sm-6">
+                                <p style="color: #fff;"> © Copyright 2019 Speed Line Express Ltd., All rights reserved </p>
+                            </div>
+                            <div class="col-md-6 col-sm-6 text-right">
+                                <p style="color: #fff;"> Developed and <span class="theme-clr fa fa-heart"></span>  by <a href="#" class="main-clr"> Skooby </a> </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+            <!-- /.Footer -->
+
+
+        </main>
+        <!-- / Main Wrapper -->
+
+        <!-- Top -->
+        <div class="to-top theme-clr-bg transition"> <i class="fa fa-angle-up"></i> </div>
+
+
+
+        <!-- Main Jquery JS -->
+        <script src="{% static 'assets/js/jquery-2.2.4.min.js' %}"></script>
+        <!-- Bootstrap JS -->
+        <script src="{% static 'assets/plugins/bootstrap-3.3.6/js/bootstrap.min.js' %}" type="text/javascript"></script>
+        <!-- Bootstrap Select JS -->
+        <script src="{% static 'assets/plugins/bootstrap-select-1.10.0/dist/js/bootstrap-select.min.js' %}" type="text/javascript"></script>
+        <!-- OwlCarousel2 Slider JS -->
+        <script src="{% static 'assets/plugins/owl.carousel.2/owl.carousel.min.js' %}" type="text/javascript"></script>
+        <!-- Sticky Header -->
+        <script src="{% static 'assets/js/jquery.sticky.js' %}"></script>
+        <!-- Wow JS -->
+        <script src="{% static 'assets/plugins/WOW-master/dist/wow.min.js' %}" type="text/javascript"></script>
+        <!-- Data binder -->
+        <script src="{% static 'assets/plugins/data.binder.js/data.binder.js' %}" type="text/javascript"></script>
+
+        <!-- Slider JS -->
+
+
+        <!-- Theme JS -->
+        <script src="{% static 'assets/js/theme.js' %}" type="text/javascript"></script>
+
+    </body>
+</html>
